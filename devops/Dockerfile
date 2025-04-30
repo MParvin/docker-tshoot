@@ -31,6 +31,9 @@ RUN rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
 RUN mv /tmp/etcd-download-files/etcdctl /usr/local/bin/etcdctl
 RUN chmod +x /usr/local/bin/etcdctl
 
+# Install grpcurl
+COPY --from=fullstorydev/grpcurl:latest /bin/grpcurl /usr/local/bin/grpcurl
+
 WORKDIR /tshoot
 
 ENTRYPOINT [ "/bin/bash" ]
